@@ -20,6 +20,14 @@ inject_into_file 'Gemfile', after: 'group :development, :test do' do
   RUBY
 end
 
+# database.yml
+########################################
+inject_into_file 'config/database.yml', after: '  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>' do
+  <<~YAML
+    host: lewagon-postgres
+  YAML
+end
+
 # Procfile
 ########################################
 file 'Procfile', <<~YAML
