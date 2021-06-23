@@ -33,6 +33,10 @@ run 'unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/
 ########################################
 gsub_file('config/environments/development.rb', /config\.assets\.debug.*/, 'config.assets.debug = false')
 
+# database.yml
+########################################
+gsub_file('config/database.yml', 'pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>', "\n  host: localhost\n")
+
 # Layout
 ########################################
 if Rails.version < "6"
