@@ -22,7 +22,7 @@ end
 
 # database.yml
 ########################################
-gsub_file('config/database.yml', 'pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>', "\n  host: lewagon-postgres\n")
+gsub_file('config/database.yml', 'pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>', "\n  host: localhost\n")
 
 # Procfile
 ########################################
