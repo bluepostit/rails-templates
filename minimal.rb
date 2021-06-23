@@ -22,12 +22,7 @@ end
 
 # database.yml
 ########################################
-inject_into_file 'config/database.yml', after: '  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>' do
-  <<~YAML
-  
-    host: lewagon-postgres
-  YAML
-end
+gsub_file('config/database.yml', 'pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>', "\n  host: lewagon-postgres\n")
 
 # Procfile
 ########################################
